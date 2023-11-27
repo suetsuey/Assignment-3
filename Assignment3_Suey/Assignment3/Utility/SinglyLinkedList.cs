@@ -140,7 +140,6 @@ namespace Assignment3.Utility
 
         public int IndexOf(User value)
         {
-            // ...
             Node current = head;
             int index = 0;
 
@@ -153,6 +152,7 @@ namespace Assignment3.Utility
                 current = current.Next;
                 index++;
             }
+
             return -1;
         }
 

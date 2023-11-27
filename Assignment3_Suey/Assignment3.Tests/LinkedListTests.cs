@@ -319,7 +319,17 @@ namespace Assignment3.Tests
         /// <summary>
         /// Test method to validate that retrieving the index of a non-existing item returns -1.
         /// </summary>
+        [Test]
+        public void TestGetsIndexOfNonExistingItem()
+        {
+            User user1 = new User("John");
+            User user2 = new User("Jane");
 
+            this.list.AddFirst(user1);
+
+            Assert.AreEqual(-1, this.list.IndexOf(user2));
+            Assert.AreEqual(1, this.list.Count());
+        }
 
         /// <summary>
         /// Test method to validate Contains method when the list contains the specified item.
@@ -348,6 +358,21 @@ namespace Assignment3.Tests
             
             Assert.IsFalse(this.list.Contains(user2));
             Assert.AreEqual(1, this.list.Count());
+        }
+
+        [Test]
+        public void TestReverse()
+        {
+            SinglyLinkedList linkedList = new SinglyLinkedList();
+            linkedList.AddLast(new User("John"));
+            linkedList.AddLast(new User("Jane"));
+            linkedList.AddLast(new User("Jason"));
+
+            linkedList.Reverse();
+
+            Assert.AreEqual("Jason", linkedList.GetValue(0).Name);
+            Assert.AreEqual("Jane", linkedList.GetValue(1).Name);
+            Assert.AreEqual("John", linkedList.GetValue(2).Name);
         }
     }
 }

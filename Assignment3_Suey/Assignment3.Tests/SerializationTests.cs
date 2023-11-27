@@ -44,9 +44,9 @@ namespace Assignment3.Tests
         {
             SerializationHelper.SerializeUsers(users, testFileName);
             ILinkedListADT deserializedUsers = SerializationHelper.DeserializeUsers(testFileName);
-
+            
             Assert.IsTrue(users.Count() == deserializedUsers.Count());
-
+            
             for (int i = 0; i < users.Count(); i++)
             {
                 User expected = users.GetValue(i);
